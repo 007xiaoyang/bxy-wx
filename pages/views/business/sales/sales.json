@@ -1,0 +1,8 @@
+{
+  "component": true,
+  "usingComponents": {
+    "mp-dialog" : "/component/dialog/dialog",
+    "mp-layer": "/component/elastic-layer/elastic-layer"
+  },
+  "enablePullDownRefresh": true
+}

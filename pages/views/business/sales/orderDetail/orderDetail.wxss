@@ -1,0 +1,38 @@
+/* pages/views/business/orderDetail/orderDetail.wxss */
+.order{
+  border-bottom: 1px solid blue;
+  font-size: 25rpx;
+  height: 60rpx;
+  line-height: 60rpx;
+  padding-left: 20rpx;
+}
+
+.contents-container{
+  border-bottom: 1px solid black;
+  padding: 5rpx 0rpx;
+}
+
+.contents-container .contents-detail{
+  font-size: 25rpx;
+  height: 40rpx;
+  line-height: 40rpx;
+  padding-left: 15rpx
+}
+.contents-right{
+  font-size: 25rpx;
+  color: white;
+  padding: 0rpx 8rpx;
+  float: right;
+  border-radius: 4px;
+  position: relative;
+  right: 25rpx;
+  bottom: 20rpx;
+}
+
+.blue{
+  background-color: blue;
+}
+
+.yellow{
+  background-color: rgb(240, 184, 82);
+}

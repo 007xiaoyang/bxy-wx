@@ -1,0 +1,4 @@
+/* pages/component/user/my/my.wxss */
+.my{
+  background-color: greenyellow
+}

@@ -1,0 +1,44 @@
+<!--pages/login/login.wxml-->
+<view class="login-containter">
+
+  <form bindsubmit="handleFormSubmit">
+    <view class="login-form">
+      <image  class="user-icon" 
+              src="/assets/icons/user.png"/>
+      <image  class="pwd-icon" 
+              src="/assets/icons/pwd.png"/>
+      <image  class="yanjin-icon" 
+              wx:if="{{isPassword}}" 
+              src="/assets/icons/yanjin.png" 
+              bindtap="handlebiyanjingIcon"/>
+      <image  class="yanjin-icon" 
+              wx:if="{{!isPassword}}"  
+              src="/assets/icons/biyanjing.png" 
+              bindtap="handlezhegnyanjingIcon"/>
+      <view class="login-title">
+        {{loginTitle}}
+      </view>
+      <input  class="login-ip" 
+              type="number"
+              placeholder="请输入手机号"
+              data-name="loginAccount"
+              bindinput="handleBindInputValue"
+              confirm-type="send"
+              value="15814688895"
+              cursor-spacing="10"/>
+      <input  class="login-ip" 
+              type="text" 
+              password="{{isPassword}}"
+              placeholder="请输入密码"
+              data-name="loginPassword"
+              confirm-type="send"
+              bindinput="handleBindInputValue"
+              cursor-spacing="100"/>
+      <button form-type="submit" 
+              loading="{{loading}}">
+        登录
+      </button>
+    </view>
+  </form>
+
+</view>

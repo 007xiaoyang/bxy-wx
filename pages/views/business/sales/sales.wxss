@@ -1,0 +1,196 @@
+.box{
+  display: flex;
+}
+.box-container{
+  background-color:white;
+  box-shadow: 0px 2px 2px rgb(190, 187, 187) ;
+  height: auto;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  z-index: 999
+}
+
+/*头顶标题样式*/
+.head-upper-container{
+  display: flex;
+  margin: 1rpx 8rpx 10rpx;
+}
+.head-upper-container .item{
+  flex: 1;
+  border-top: 1px solid blue;
+  border-right: 1px solid blue;
+  border-bottom: 1px solid blue;
+  text-align: center;
+  font-size: 25rpx;
+  height: 65rpx;
+  line-height: 65rpx;
+}
+.head-upper-container .item:first-child{ 
+   border-left: 1px solid blue;
+  border-top-left-radius: 5rpx;
+  border-bottom-left-radius: 5rpx;
+}
+.head-upper-container .item:last-child{ 
+  border-top-right-radius: 5rpx;
+  border-bottom-right-radius: 5rpx;
+}
+.head-upper-container .item-active{
+  color: white;
+  background-color: blue;
+}
+
+/*搜索框和图片样式*/
+.head-centre-container{ 
+  padding-bottom: 4rpx;
+}
+.head-centre-container .centre-search{
+  border: 1px solid black;
+  width: 320rpx;
+  height: 60rpx;
+  line-height: 65rpx;
+  font-size: 25rpx;
+  margin: 8rpx auto;
+}
+.head-centre-container .centre-img{
+  width: 50rpx;
+  height: 62rpx;
+  position: fixed;
+  left: 150rpx;
+  text-align: center;
+}
+.head-centre-container .centre-img2{
+  width: 65rpx;
+  height: 65rpx;
+  position: fixed;
+  left: 580rpx;
+}
+
+/*日期搜索框样式*/
+.data-consainer{
+  width: 380rpx;
+  text-align: center;
+  margin: 1rpx auto 8rpx;
+}
+.startData{
+  background-color: blue;
+  border: 1px solid gainsboro;
+  font-size: 25rpx;
+  color: white;
+  display: inline-block;
+  width: 170rpx;
+  padding: 5rpx 0rpx;
+}
+.endData{
+  background-color: red;
+  border: 1px solid gainsboro;
+  font-size: 25rpx;
+  color: white;
+  display: inline-block;
+  width: 170rpx;
+  padding: 5rpx 0rpx;
+  margin-left: 5rpx;
+}
+
+
+
+
+.h-l-c-centre{
+  flex: 1;
+  font-size: 25rpx;
+  height: auto;
+  text-align: center;
+}
+
+.h-c-title{ 
+  height: 70rpx;
+  width: 550rpx;
+  margin: 0rpx auto;
+}
+
+.h-c-t-text{
+  width: 110rpx;
+  height: auto;
+  font-size: 22rpx;
+  display: inline-block;
+  text-align: center;
+}
+
+
+
+/*内容列表样式 height:{{1050 - handHeigth}}rpx;*/
+.scroll-container{
+  position: relative;
+  height: auto;
+  margin: 1rpx 0rpx 120rpx;
+}
+
+.order-contents{
+  border: 1px solid white ;
+  box-shadow: 0px 3px 6px rgb(131, 128, 128) ;
+  margin: 1rpx 0rpx 10rpx;
+  font-size: 25rpx;
+  line-height: 45rpx;
+}
+
+.order-contents .line{
+  border-top: 1px solid rgb(252, 115, 3);
+  margin: 5rpx 0rpx;
+}
+
+.box-buttom{
+  flex: 1;
+  text-align: center;
+  border: 1px solid rgb(156, 153, 153);
+  border-radius: 3px;
+  height: 55rpx;
+  flex-shrink: 1;
+  width: 10rpx;  
+  line-height: 55rpx;
+  margin: 12rpx 30rpx 16rpx; 
+}
+
+
+.orderMoney{
+  font-size: 35rpx;
+  font-weight: bold ;
+  float: right;
+  margin-right: 20rpx;
+}  
+.discdount{
+  color: white;
+  background-color: rgb(95, 86, 86);
+  font-size: 22rpx;
+  border-radius: 2px;
+  float: right;
+  margin-right: 20rpx;
+}
+
+
+
+/*字体颜色*/
+.typeface{
+  color: red;
+}
+
+
+
+.blue{
+  color: white;
+  background-color: rgb(64, 64, 240)
+}
+
+.primary{
+  color: white;
+  background-color: rgb(146, 243, 146)
+}
+
+.gray{
+  color: white;
+  background-color: rgb(218, 216, 216);
+}
+
+.red{
+  color: white;
+  background-color: red;
+}

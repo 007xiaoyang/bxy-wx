@@ -1,0 +1,20 @@
+{
+  "usingComponents": {
+    "component_business_sales": "/pages/views/business/sales/sales",
+    "component_business_finance": "/pages/views/business/finance/finance",
+    "component_business_purchase": "/pages/views/business/purchase/purchase",
+    "component_business_stock": "/pages/views/business/stock/stock",
+    "component_business_data": "/pages/views/business/data/data",
+
+    "component_staff_order": "/pages/views/staff/order/order",
+    "component_staff_share": "/pages/views/staff/share/share",
+    "component_staff_func": "/pages/views/staff/func/func",
+    "component_staff_my": "/pages/views/staff/my/my",
+
+    "component_user_home": "/pages/views/user/home/home",
+    "component_user_news": "/pages/views/user/news/news",
+    "component_user_cart": "/pages/views/user/cart/cart",
+    "component_user_my": "/pages/views/user/my/my"
+
+  }
+}

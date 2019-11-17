@@ -1,0 +1,4 @@
+/* pages/component/user/news/news.wxss */
+.news{
+  background-color: red
+}

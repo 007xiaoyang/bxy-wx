@@ -1,0 +1,4 @@
+/* pages/component/user/cart/cart.wxss */
+.cart{
+  background-color: blue
+}

@@ -1,0 +1,24 @@
+<!--pages/views/business/orderDetail/orderDetail.wxml-->
+<view class="container">
+  <view class="order">名称：  </view>
+  <view class="order">订单号：  234dfdsfr3423423423</view>
+  <view class="order">运费：  ￥1</view>
+  <view class="order">差价：  ￥0</view>
+  <view class="order">优惠：  ￥33</view>
+  <view class="order">备注：  33</view>
+  <view class="order">合计：  ￥342423</view>
+  <view class="order">结款：  ￥0</view>
+  <view style="display: flex; margin:25rpx 0rpx">
+    <button size="mini" type="primary">分享订单</button>
+  </view>
+  <block wx:for="{{10}}" wx:key="{{index}}">
+    <view class="contents-container">  
+      <view class="contents-detail">产品：大米</view>
+      <view class="contents-detail">售价：12元/瓶</view>
+      <view class="contents-detail">数量：1 
+        <text class="contents-right {{index % 2 == 0 ? 'blue': 'yellow'}}">售卖</text>  
+      </view> 
+      
+    </view>
+  </block>
+</view>

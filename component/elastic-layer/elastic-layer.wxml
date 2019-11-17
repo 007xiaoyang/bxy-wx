@@ -1,0 +1,49 @@
+<view class="weui-layer-mask {{!show ? 'weui-layer-mask_hidden' : '' }}" 
+      bindtap="close" 
+      catchtouchmove="catchtouchmove" 
+      wx:if="{{mask}}">
+</view>
+<view class="weui-layer__wrp   {{top ? 'layer-top': ''}} {{bottom ? 'layer-bottom': ''}}   {{extClass}} "
+      wx:if="{{show}}" 
+      bindtap="close"   
+      catchtouchmove="catchtouchmove">
+  <view class="weui-layer" 
+        catchtap="stopEvent">
+    <view class="weui-layer__hd"  
+          wx:if="{{title == '' ? false : true}}">
+      <view class="weui-layer__title">
+        {{title}}
+        <slot name="title"></slot>
+      </view>
+    </view>
+    <view class="weui-layer__top-btn" 
+          wx:if="{{topBtn}}">
+      <block wx:if="{{buttons && buttons.length}}">
+        <view class="weui-layer__btn {{item.className}} {{item.extClass}}"
+              wx:for="{{buttons}}" 
+              wx:key="{{index}}"  
+              data-index="{{index}}" 
+              bindtap="buttonTap">
+          {{item.text}}
+        </view>
+      </block>
+      <slot name="footer" wx:else></slot>
+    </view> <!--../weui-layer__top-btn -->
+    <view class="weui-layer__bd">
+      <slot></slot>
+    </view>v<!--../ weui-layer__bd -->
+    <view class="weui-layer__bottom-btn" 
+          wx:if="{{bottomBtn}}">
+      <block wx:if="{{buttons && buttons.length}}">
+        <view class="weui-layer__btn {{item.className}} {{item.extClass}}"
+              wx:for="{{buttons}}" 
+              wx:key="{{index}}"  
+              data-index="{{index}}" 
+              bindtap="buttonTap">
+          {{item.text}}
+        </view>
+      </block>
+      <slot name="footer" wx:else></slot>
+    </view> <!--../weui-layer__bottom-btn -->
+  </view>
+</view>  

@@ -1,0 +1,267 @@
+<view class="">
+<view class="box-container">
+  <view class="head-upper-container">
+    <block  wx:for="{{items}}"
+            wx:key="{{index}}">
+      <view class="item {{currentTab == index ? 'item-active' : ''}}"
+            bindtap="handleHeadItemClick"
+            data-index="{{index}}">
+        {{item}}      
+      </view>      
+    </block>
+  </view> <!--  ../head-upper-container  -->
+  <view class="head-centre-container">
+    <view hidden="{{display}}">
+      <image  class="centre-img" 
+              src="/assets/icons/kehu.png"/>
+      <image  class="centre-img2"
+              bindtap="_saoClick"   
+              src="/assets/icons/saoyisao.png"/>
+      <input  class="centre-search" 
+              confirm-type="send"
+              bindconfirm="handleInputSearch"
+              placeholder="联想搜索，输入客户名称"/>
+    </view>
+  </view> <!--  ../head-centre-container  -->
+
+  <view class="head-lower-container">
+      <!--待送货-->
+      <view class="h-c-title" 
+            hidden="{{delivered}}">
+        <view class="h-c-t-text">
+            <text>销售总额</text>
+            <text>￥{{deliveredObj.saleTotal}}</text>
+        </view>
+        <view class="h-c-t-text" 
+              style=" float: right">
+            <text>退货总额</text>
+            <text>￥{{deliveredObj.retreatTotal}}</text>
+        </view>     
+      </view>
+      <!--未付款-->
+      <view class="h-c-title" 
+            hidden="{{unpaid}}">
+        <view class="h-c-t-text">
+            <text>未付款总额</text>
+            <text>￥{{unpaidObj.saleUnpaidTotal}}</text>
+        </view>
+        <view class="h-c-t-text" 
+              style=" float: right">
+            <text>退货总额</text>
+            <text>￥{{unpaidObj.retreatUnpaidTotal}}</text>
+        </view>      
+      </view>
+       <!--欠款-->
+      <view class=".h-c-title" 
+            hidden="{{arrears}}">
+        <view class="h-c-t-text">
+          <text>销售欠款</text>
+          <text>￥{{arrearsObj.salesArrears}}</text>
+        </view>
+        <view class="h-c-t-text" 
+              style="margin-left:110rpx">
+          <text>欠款已收</text>
+          <text>￥{{arrearsObj.arrearsHaveCollected}}</text>
+        </view> 
+        <view class="h-c-t-text" 
+              style=" float: right">
+          <text style="color:red">欠款待收</text>
+          <text style="color:red">￥{{arrearsObj.arrearstoCollected}}</text>
+        </view>      
+      </view>
+       <!--已收款-->
+      <view  hidden="{{accepted}}">
+        <view class="box data-consainer">
+          <picker mode="date" hidden bindchange="_handleStartDataClick">
+            <text class="startData">{{startData}} </text> - 
+          </picker>
+          <picker mode="date" 
+                  start="{{startData == '开始时间' ? '': startData}}"
+                  bindchange="_handleEndDataClick">
+              <text class="endData"> {{endData}}</text>
+          </picker>
+        </view>
+
+        <view class="h-c-t-text">
+          <text>销售应收</text>
+          <text>￥{{acceptedObj.saleReceived}}</text>
+        </view>
+        <view class="h-c-t-text" 
+              style="margin-left:110rpx">
+          <text>销售实收</text>
+          <text>￥{{acceptedObj.saleActualReceipt}}</text>
+        </view> 
+        <view class="h-c-t-text" 
+              style="margin-left:110rpx">
+          <text>销售应退</text>
+          <text>￥{{acceptedObj.saleShouldRefunded}}</text>
+        </view>    
+        <view class="h-c-t-text" 
+              style=" float: right">
+          <text>销售实退</text>
+          <text>￥{{acceptedObj.saleRetreat}}</text>
+        </view>      
+      </view>
+
+  </view>  <!--  ../head-lower-container  -->
+
+</view>
+
+<scroll-view  class="scroll-container" scroll-top scroll-y 
+              style=" top:{{handHeigth}}rpx; ">
+  <view   wx:for="{{40}}" wx:key="{{index}}">
+    <view class="order-contents">
+      <view bindtap="handleOrderDetailClick">
+        <view class="{{mold == 1 ? 'typeface':''}}">
+          下单客户: 杨打发手动阀打发的手法对付啊打发阿达啊的大斗法
+        </view>
+        <view class="{{mold == 1 ? 'typeface':''}}">
+          订单编号: 4524524524524525245
+        </view>
+        <view class="{{mold == 1 ? 'typeface':''}}">
+          标识码：DFD321
+        </view>
+        <view class="{{mold == 1 ? 'typeface':''}}"
+               wx:if="{{waitReceipt}}">
+          订单类型: 销售单
+        </view>
+        <view class="{{mold == 1 ? 'typeface':''}}" 
+              wx:if="{{!accepted}}">
+          支付方式: 现金
+        </view>
+        <view class="{{mold == 1 ? 'typeface':''}}" 
+              wx:if="{{!accepted}}">
+          订单金额：53元
+        </view>
+        <view class="{{mold == 1 ? 'typeface':''}}" 
+              wx:if="{{!arrears}}">
+          欠款金额：353元
+        </view>
+        <view class="{{mold == 1 ? 'typeface':''}}" 
+              wx:if="{{!arrears}}">
+          预收金额：353元
+        </view>
+        <view class="{{mold == 1 ? 'typeface':''}}" 
+              wx:if="{{!display && accepted}}">
+        操作人：商家
+        </view> 
+        <view class="{{mold == 1 ? 'typeface':''}}" 
+              wx:if="{{!accepted}}">
+          结款人：张女士
+        </view>      
+        <view class="{{mold == 1 ? 'typeface':''}}" 
+              wx:if="{{!accepted}}">
+          结款时间:  201-09-11 12:34:53
+        </view>
+        <view class="{{mold == 1 ? 'typeface':''}}" 
+              wx:if="{{!arrears}}">
+          上次收款时间:  201-09-11 12:34:53
+        </view>
+        <view class="{{mold == 1 ? 'typeface':''}}" 
+              wx:if="{{!unpaid || !arrears || !accepted}}">
+          到货时间:  201-09-11 12:34:53
+        </view>
+        <view class="{{mold == 1 ? 'typeface':''}}">
+          下单时间: 201-09-11 12:34:532  
+          <text class="orderMoney {{mold == 1 ? 'typeface':''}}">￥280</text> 
+        </view>
+        <view class="{{mold == 1 ? 'typeface':''}}">
+          联系电话: 13215755266          
+          <text class="discdount">优惠0元</text>
+        </view>
+      </view>
+
+      <view class="line"></view>
+      <view class="box">
+        <view class="box-buttom blue" 
+              wx:if="{{!waitReceipt}}"
+              data-msg="接单"
+              bindtap="handleReceiptClick">
+          接单
+        </view>
+        <view class="box-buttom red" 
+              wx:if="{{!waitReceipt}}"
+              data-msg="拒单"
+              bindtap="handleReceiptClick">
+          拒单
+        </view>
+
+        <view class="box-buttom gran" 
+              wx:if="{{!notPrinted}}"
+              data-msg="修改订单"
+              bindtap="handleReceiptClick">
+          修改订单
+        </view>
+        <view class="box-buttom blue" 
+              wx:if="{{!notPrinted}}"
+              data-msg="保存订单"
+              bindtap="handleReceiptClick">
+          保存订单
+        </view>
+        <view class="box-buttom red" 
+              wx:if="{{!notPrinted}}"
+              data-msg="取消订单"
+              bindtap="handleReceiptClick">
+          取消订单
+        </view>
+        <view class="box-buttom gran" 
+              wx:if="{{!notPrinted}}"
+              data-msg="打印"
+              bindtap="handleReceiptClick">
+          接单打印
+        </view>
+        <view class="box-buttom gran" 
+              wx:if="{{!delivered}}"
+              data-msg="修改订单"
+              bindtap="handleReceiptClick">
+          修改订单
+        </view>
+        <view class="box-buttom blue" 
+              wx:if="{{!delivered}}"
+               data-msg="确认送达"
+              bindtap="handleReceiptClick">
+          确认送达
+        </view>
+        <view class="box-buttom red" 
+              wx:if="{{!delivered}}"
+              data-msg="取消订单"
+              bindtap="handleReceiptClick">
+          取消订单
+        </view>
+        <view class="box-buttom gran" 
+              wx:if="{{!delivered}}"
+              data-msg="打印"
+              bindtap="handleReceiptClick">
+          订单打印
+        </view>
+        <view class="box-buttom blue" 
+              wx:if="{{!unpaid}}"
+              data-msg="付款"
+              bindtap="handleReceiptClick">
+          客户已付款
+        </view>
+        <view class="box-buttom gran" 
+              wx:if="{{!unpaid}}"
+              data-msg="付款"
+              bindtap="handleReceiptClick">
+          客户要欠款
+        </view>
+        <view class="box-buttom blue" 
+              wx:if="{{!arrears}}"
+              data-msg="完成收款"
+              bindtap="handleReceiptClick">
+          确认收款
+        </view>
+      </view>
+    </view>
+    
+  </view>
+</scroll-view>
+<mp-dialog  show="{{dialogShow}}" 
+            bindbuttontap="tapDialogButton" 
+            buttons="{{buttons}}"
+            title=""
+            mask-closable="{{maskCosable}}">
+        <view>{{dialogContent}}</view>
+</mp-dialog> 
+</view>

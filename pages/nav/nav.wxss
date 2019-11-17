@@ -1,0 +1,102 @@
+/**index.wxss**/
+@font-face {
+    font-family: 'FZSuXSLSJW';
+    src: url("https://we7.stuyun.com/FZSuXSLSJW.ttf")
+}
+page {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.nav-tabs {
+  width: 100%;
+  display: flex;
+  position: fixed;
+  bottom: 0;
+  border-top: 1px solid rgb(218, 212, 212)
+}
+
+.tab-list {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column-reverse;
+  background: #ffffff;
+  height: 120rpx;
+
+}
+
+.tab-text {
+  font-size: 22rpx;
+  line-height: 30rpx;
+  color: #cacaca;
+  margin-top: 10rpx;
+}
+
+.tab-text-active {
+  font-size: 22rpx;
+  line-height: 30rpx;
+  color: #f0a849;
+  margin-top: 10rpx;
+}
+
+.iconPath {
+  width:54rpx;
+  height: 54rpx;
+}
+
+.tab-content {
+  flex: 1;
+}
+
+.default {
+  line-height: 75rpx;
+  text-align: center;
+  flex: 1;
+  /* border-bottom: 1px solid #eee; */
+  color: #ffffff;
+  font-weight: bold;
+  font-size: 28rpx;
+}
+
+.active {
+  line-height: 75rpx;
+  text-align: center;
+  color: #ffffff;
+  flex: 1;
+  /* border-bottom: 1px solid red; */
+  font-weight: bold;
+  font-size: 28rpx;
+}
+
+.show {
+  display: block;
+  flex: 1;
+}
+
+.hidden {
+  display: none;
+  flex: 1;
+}
+
+
+
+
+.select{
+  margin: 50rpx 50rpx;
+}
+.select-user{
+  background-color: rgb(231, 152, 99);
+  color: white;
+}
+.select-staff{
+  background-color: rgb(99, 194, 231);
+  color: white;
+}
+.select-business{
+  background-color: rgb(49, 83, 194);
+  color: white;
+}
+
+

@@ -1,0 +1,68 @@
+
+.login-containter{
+  position: absolute;
+  right: 25rpx;
+  left: 25rpx;
+  border: 1px solid gainsboro;
+  width: 680rpx;
+  height: 480rpx;
+  box-shadow: 1px 1px 15px rgb(105, 103, 103);
+  border-radius: 5px;
+  margin: 200rpx auto;
+  z-index: 99999;
+  background-color: white;
+}
+
+.login-title{
+  font-size: 50rpx;
+  text-align: center;
+  height: 50rpx;
+  line-height: 50rpx;
+  margin: 50rpx 0rpx;
+
+}
+.login-ip{
+  width: 450rpx;
+  height: 65rpx;
+  line-height: 65rpx;
+  border: 1px solid rgb(95, 89, 89);
+  margin: 35rpx auto;
+  position: relative;
+  border-radius: 2px;
+  text-align: center;
+  font-size: 26rpx;
+}
+
+.login-ip:hover{
+  border: 1px solid rgb(54, 16, 224);
+}
+
+button{
+  width: 450rpx;
+  background-color: blue;
+  color: white;
+}
+
+.user-icon{
+  width: 50rpx;
+  height: 50rpx;
+  position: absolute;
+  top: 160rpx;
+  left: 120rpx;
+}
+
+.pwd-icon{
+  width: 50rpx;
+  height: 50rpx;
+  position: absolute;
+  top: 262rpx;
+  left: 120rpx;
+}
+.yanjin-icon{
+  width: 50rpx;
+  height: 50rpx;
+  position: absolute;
+  top: 265rpx;
+  left: 510rpx;
+  z-index: 999
+}

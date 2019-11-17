@@ -1,0 +1,20 @@
+{
+  "pages": [
+    "pages/nav/nav",
+    "pages/login/login",
+    "pages/views/business/sales/orderDetail/orderDetail",
+    "pages/views/business/sales/updataSaleOrder/updataSaleOrder"
+  ],
+  "window": {
+    "backgroundTextStyle": "dark",
+    "navigationBarBackgroundColor": "#e6e6e6",
+    "navigationBarTitleText": "用户商城",
+    "navigationBarTextStyle": "black"
+  },
+  "permission": {
+    "scope.userLocation": {
+      "desc": "你的位置信息将用于小程序位置接口的效果展示"
+    }
+  },
+  "sitemapLocation": "sitemap.json"
+}

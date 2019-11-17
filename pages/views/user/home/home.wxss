@@ -1,0 +1,4 @@
+/* pages/component/user/home/home.wxss */
+.home{
+  background-color: teal
+}
