@@ -24,7 +24,6 @@
               data-name="loginAccount"
               bindinput="handleBindInputValue"
               confirm-type="send"
-              value="15814688895"
               cursor-spacing="10"/>
       <input  class="login-ip" 
               type="text" 

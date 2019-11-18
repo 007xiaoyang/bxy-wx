@@ -2,6 +2,6 @@ App({
   onLaunch: function () {
   },
   globalData:{
-    host: "https://localhost:8443/"
+    host: "https://www.bxy8888.com:8443/"
   }
 })

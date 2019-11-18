@@ -1,1 +1,2 @@
-<view>这里是财务管理</view>
+<mp-grid router="{{w}}" > </mp-grid>
+

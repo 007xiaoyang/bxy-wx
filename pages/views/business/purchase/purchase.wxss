@@ -1,1 +1,7 @@
 /* pages/component/business/purchase/purchase.wxss */
+
+.e{
+  position: absolute;
+  background-color: red;
+  z-index: 99999
+}

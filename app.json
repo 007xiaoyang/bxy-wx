@@ -3,7 +3,8 @@
     "pages/nav/nav",
     "pages/login/login",
     "pages/views/business/sales/orderDetail/orderDetail",
-    "pages/views/business/sales/updataSaleOrder/updataSaleOrder"
+    "pages/views/business/sales/updataSaleOrder/updataSaleOrder",
+    "component/grid/grid"
   ],
   "window": {
     "backgroundTextStyle": "dark",

@@ -55,7 +55,7 @@ Component({
     mold:0
   },
 
-
+  
 
   /**
    * 组件的方法列表
@@ -174,7 +174,7 @@ Component({
     //点击进入订单详情页面事件
     handleOrderDetailClick(){
       wx.navigateTo({
-        url: '/pages/views/business/orderDetail/orderDetail',
+        url: '/pages/views/business/sales/orderDetail/orderDetail',
       })
     },
 
@@ -189,7 +189,7 @@ Component({
       } else if (event.target.dataset.msg == '修改订单'){
         dialogShow = false;
         wx.navigateTo({
-          url: '/pages/views/business/updataSaleOrder/updataSaleOrder?title='+ 2222,
+          url: '/pages/views/business/sales/updataSaleOrder/updataSaleOrder?title='+ 2222,
         })
       } else if (event.target.dataset.msg == '保存订单') {
         dialogContent = '确定保存?'
@@ -225,5 +225,6 @@ Component({
 
   },
   attached() {
+   
   }
 })

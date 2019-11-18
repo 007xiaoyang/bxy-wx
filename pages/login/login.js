@@ -48,8 +48,6 @@ Page({
       [loginFormOrder]: that.data[name]
     })
   },
-
-
   //点击登录触发事件
   handleFormSubmit(event) {
     var data = this.data;
