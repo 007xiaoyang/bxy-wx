@@ -1,7 +1,7 @@
 
 <view class="container">
     <view class="weui-grids">
-        <view class="weui-grid" wx:for="{{router}}" wx:key="name">
+        <view class="weui-grid" wx:for="{{routers}}" wx:key="name">
             <navigator url="{{item.url+'?name='+item.name+'&code='+item.code}}">
                 <view class='weui-grid__bg'>
                     <block wx:if="{{item.num}}">

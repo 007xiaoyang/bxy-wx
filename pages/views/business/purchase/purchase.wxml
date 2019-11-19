@@ -1,6 +1,0 @@
-
-<mp-grid router="{{w}}" >
-  <view >这里是插入到组件slot name="after"中的内容</view>
- </mp-grid>
-
-

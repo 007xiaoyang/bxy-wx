@@ -1,1 +1,1 @@
-<view>库存管理页面</view>
+<mp-grid routers="{{routers}}" > </mp-grid>

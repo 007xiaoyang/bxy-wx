@@ -86,8 +86,8 @@
 }
  
 .weui-grid__icon {
-    width: 32px;
-    height: 32px;
+    width: 60rpx;
+    height: 60rpx;
     margin: 0 auto;
 }
  
@@ -107,8 +107,8 @@
     display: block;
     text-align: center;
     font-weight: bold;
-    color: #000;
-    font-size: 13px;
+    color: rgb(90, 88, 88);
+    font-size: 26rpx;
     white-space: nowrap;
     text-overflow: ellipsis;
     overflow: hidden;

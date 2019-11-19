@@ -1,0 +1,74 @@
+<!--component/top/top.wxml-->
+  <view class="containter">
+    <view class="p-containter">
+      <view class="p-head-containter">
+        <input  class="head-input" 
+                type="{{type}}"
+                placeholder="{{placeholder}}"
+                placeholder-style="{{placeholderStyle}}"
+                confirm-type="{{confirmType}}"
+                bindconfirm="conFirmTap"/>
+        <image  class="head-img" 
+                bindtap="scanTap"
+                data-type="saoyisao"
+                src="/assets/icons/tiaomasousuo.png"/>
+                
+        <picker class="head-date"  
+                mode="date"
+                data-date="startDate"
+                bindchange="changeDateTap"
+                end="{{endDate == '结束时间' ? '': endDate}}">
+          <text>{{startDate}}</text>
+        </picker>
+        <text class="head-wave">~</text>
+        <picker class="head-date"  
+                mode="date"  
+                data-date="endDate"
+                bindchange="changeDateTap"
+                start="{{startDate == '开始时间' ? '': startDate}}">
+          <text>{{endDate}}</text>
+        </picker>
+
+      </view>
+      <view class="head-dashed"></view>
+
+      <view class="p-content-containter" wx:if="{{show}}">
+
+        <view wx:if="{{mode == 'oneType'}}">
+          <slot name="before"></slot>
+          <view class="c-label-one">
+            {{modeLable}}
+          </view>
+          <view class="label-one" wx:for="{{labelText}}" wx:key="{{index}}">
+            <view class="one-title">{{item.oneName}}</view>
+            <view class="one-title">{{item.twoName}}</view>
+            <view  class="one-title">{{item.threeName}}</view>
+            <view class="one-title">￥{{item.oneNum}}</view>
+            <view class="one-title">￥{{item.twoNum}}</view>
+            <view  class="one-title">￥{{item.threeNum}}</view>
+             <view class="one-title_2">{{item.fourName}}</view>
+            <view  class="one-title_2">{{item.fiveName}}</view>
+            <view class="one-title_2">￥{{item.fourNum}}</view>
+            <view class="one-title_2">￥{{item.fiveNum}}</view>
+          </view>
+        </view>
+      </view>
+    </view>
+    <image  class="p-containter-fil" 
+            catchtap="shrinkTap" 
+            wx:if="{{show}}" 
+            data-icon="{{false}}" 
+            data-height="{{68}}" 
+            src="{{shangIcon}}" />
+    <image  class="p-containter-fil" 
+            catchtap="shrinkTap" 
+            wx:if="{{!show}}" 
+            data-icon="{{true}}" 
+            data-height="{{0}}" 
+            src="{{xiaIcon}}" />
+  </view>
+
+  <view class="content-containter" 
+        style="top:{{largeHeight}}px">
+    <slot name="after"></slot>
+  </view>

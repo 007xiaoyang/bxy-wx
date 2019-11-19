@@ -1,6 +1,6 @@
 {
   "component": true,
   "usingComponents": {
-    "mp-grid": "/component/grid/grid"
+   
   }
 }

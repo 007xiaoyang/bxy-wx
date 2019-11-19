@@ -1,2 +1,1 @@
-<!--pages/component/business/data/data.wxml-->
-<view>这里是资料中心</view>
+<mp-grid routers="{{routers}}" > </mp-grid>

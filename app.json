@@ -4,7 +4,8 @@
     "pages/login/login",
     "pages/views/business/sales/orderDetail/orderDetail",
     "pages/views/business/sales/updataSaleOrder/updataSaleOrder",
-    "component/grid/grid"
+    "component/grid/grid",
+    "pages/views/business/finance/purchase/purchase"
   ],
   "window": {
     "backgroundTextStyle": "dark",

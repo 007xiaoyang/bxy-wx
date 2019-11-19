@@ -4,7 +4,7 @@ Page({
     isShow: false,
     isSelectLoing: false,
     loginType: '',
-    currentTab: 0,
+    currentTab: 1,
     //这里只做tab名和显示图标
     items: [] ,
     

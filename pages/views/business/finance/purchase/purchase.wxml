@@ -1,0 +1,29 @@
+<!--pages/views/business/finance/purchase/purchase.wxml-->
+<mp-head  large-height="{{largeHeight}}" 
+          start-date="{{startDate}}"
+          end-date="{{endDate}}"
+          placeholder="请输入供应商名称"
+          bindshrinktap="headleShrinkTap" 
+          bindscantap="headleScanTap"
+          bindchangedatetap="headleChangeDatetTap"
+          bindconfirmtap="headleConfirmTap"
+          mode="oneType"
+          mode-lable="金额（随时间搜索变化)"
+          label-text="{{labelText}}">
+
+<view slot="after">
+  <block wx:for="{{6}}" wx:key="index">
+    <view class="list-containter">
+      <view class="dashed list-label">  
+        <text>供应商：大大啊打发</text>
+      </view>
+      <view class="dashed list-label">订单编号：234234341234134134134</view>
+      <view class="dashed list-label">标识码：DSF121</view>
+      <view class="dashed list-label">订单金额：122  <text>付款总额：￥333</text>  <text>实际付款：￥200</text></view>
+      <view class="dashed list-label">结款人：商家  <text>支付：微信</text></view>
+      <view class="list-label">到货时间：2019-11-10 19:22:11</view>
+      <view class="list-label">结款时间：2019-11-10 19:22:11</view>
+    </view>
+  </block>
+</view>
+</mp-head>

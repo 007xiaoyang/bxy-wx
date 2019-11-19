@@ -1,2 +1,2 @@
-<mp-grid router="{{w}}" > </mp-grid>
+<mp-grid routers="{{routers}}" > </mp-grid>
 

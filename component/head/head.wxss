@@ -1,0 +1,100 @@
+.containter{
+  position: fixed;
+  overflow: hidden;
+  width: 100%;
+  height: auto;
+  top: 0;
+  background-color: white;
+  z-index: 999;
+}
+
+.p-containter{
+  position: relative;
+  top: 0;
+  padding: 10rpx;
+  box-shadow: 0px 3px 3px gainsboro;
+
+}
+
+.head-input{
+  display: inline-block;
+  border: 1px solid rgb(63, 60, 60);
+  border-radius: 5px;
+  width: 260rpx;  
+  height: 50rpx;
+  margin: 0rpx 18rpx;
+  text-align: center;
+}
+.head-img{
+  height: 50rpx;
+  width: 50rpx;
+  
+}
+.head-date{
+  display: inline-block;
+  border: 1px solid black;
+  font-size: 22rpx;
+  border-radius: 3px;
+  margin: 0rpx 12rpx;
+  padding: 5rpx 2rpx;
+  width: 125rpx;
+  text-align: center;
+  position: relative;
+  top: -16rpx;
+  left: 35rpx;
+  background-color: rgb(233, 232, 232)
+}
+.head-date:hover{
+  border: 1px solid rgb(19, 92, 177);
+  background-color: rgb(19, 92, 177);
+  color: white;
+}
+
+.head-wave{
+  display: inline-block;
+  text-align: center;
+  position: relative;
+  top: -16rpx;
+  left: 35rpx;
+}
+
+.head-dashed{
+  border-bottom: 1px dashed red;
+}
+
+.content-containter{
+  position: relative;
+  height: 100%;
+}
+
+.p-containter-fil{
+  height: 38rpx;
+  width: 75rpx;
+  text-align: center;
+  position: relative;
+  top: 0;
+  left: 350rpx;
+}
+
+
+/************* oneType ****************/
+.c-label-one{
+  font-size: 28rpx;
+  text-align: center;
+  font-weight:  bold;
+  margin: 15rpx 0rpx 5rpx;
+}
+.label-one{
+  font-size: 23rpx; 
+}
+.one-title{
+  width: 33.33%;
+  display: inline-block;
+  text-align: center;
+}
+.one-title_2{
+  width: 50%;
+  display: inline-block;
+  text-align: center;
+}
+
