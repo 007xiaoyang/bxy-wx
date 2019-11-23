@@ -19,11 +19,11 @@ Page({
     this.setData({
       loginPhone: loginPhone,
       loginType : loginType
-    })
-    if (loginPhone != null || loginPhone != '') {
+    });
+    if (loginPhone != null && loginPhone != "") {
       //获取用户登录信息application/x-www-form-urlencoded;charset=utf-8
       wx.request({
-        url: app.globalData.host + '/shopApp/getUserLoginInfo',
+        url: app.globalData.host + 'shopApp/getUserLoginInfo',
         method: 'POST',
         data: { loginPhone: loginPhone, loginType: loginType },
         header: { 'content-type': 'application/x-www-form-urlencoded' },

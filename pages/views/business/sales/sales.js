@@ -322,7 +322,6 @@ Component({
     unpaidOrder(pageNo, name, number, staffName, startTime, endTime){
       app.post('order/unpaidOrder', { pageNo: pageNo, name: name, number: number, staffName: staffName, startTime:        startTime, endTime: endTime }).then((res) => { 
         let data = res;
-        console.log(res);
         this.setData({
           list: data.records,
           totalRecordsNum: data.totalRecordsNum,

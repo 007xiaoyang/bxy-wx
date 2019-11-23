@@ -17,8 +17,8 @@ App({
       
       //网络请求
       wx.request({
-       // url: "https://www.bxy8888.com:8443/"+ url,
-        url: "http://192.168.3.51:8089/" +url,
+        url: "https://www.bxy8888.com:8443/"+ url,
+       // url: "http://192.168.3.51:8089/" +url,
         data: data,
         method: 'POST',
         header: { 'content-type': 'application/x-www-form-urlencoded' },
@@ -51,6 +51,7 @@ App({
   },
 
   globalData:{
+    //host: "http://localhost:8089/"
     host: "https://www.bxy8888.com:8443/"
   }
 })
