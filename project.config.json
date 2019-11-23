@@ -4,7 +4,7 @@
 		"ignore": []
 	},
 	"setting": {
-		"urlCheck": true,
+		"urlCheck": false,
 		"es6": true,
 		"postcss": true,
 		"minified": true,
@@ -56,8 +56,8 @@
 			"list": [
 				{
 					"id": 0,
-					"name": "component/grid/grid",
-					"pathName": "component/grid/grid",
+					"name": "pages/views/business/finance/totalPurchase/totalPurchase",
+					"pathName": "pages/views/business/finance/totalPurchase/totalPurchase",
 					"query": "",
 					"scene": null
 				}

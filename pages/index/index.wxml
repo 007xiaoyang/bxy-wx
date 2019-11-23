@@ -1,0 +1,35 @@
+<view class="page">
+    <!--店铺小程序菜单内容组件-->
+    <mp-b-sales wx:if="{{isShow && loginType == 1 && current == 0}}" title-index="{{titleIndex}}"
+                bindindextap="bindIndexTap">
+    </mp-b-sales>
+    <mp-b-finance wx:if="{{isShow && loginType == 1 && current == 1}}"></mp-b-finance>
+    <mp-b-purchase wx:if="{{isShow && loginType == 1 && current == 2}}" ></mp-b-purchase>
+    <mp-b-stock wx:if="{{isShow && loginType == 1 && current == 3}}"></mp-b-stock>
+    <mp-b-data wx:if="{{isShow && loginType == 1 && current == 4}}"></mp-b-data>
+
+    <!--员工小程序菜单内容组件-->
+    <mp-s-order wx:if="{{isShow && loginType == 2 && current == 0}}"></mp-s-order>
+    <mp-s-share wx:if="{{isShow && loginType == 2 && current == 1}}"></mp-s-share>
+    <mp-s-func wx:if="{{isShow && loginType == 2 && current == 2}}" ></mp-s-func>
+    <mp-s-my wx:if="{{isShow && loginType == 2 && current == 3}}"></mp-s-my>
+
+    <!--用户小程序菜单内容组件-->
+    <mp-u-home wx:if="{{isShow && loginType == 0 && current == 0}}"></mp-u-home>
+    <mp-u-news wx:if="{{isShow && loginType == 0 && current == 1}}"></mp-u-news>
+    <mp-u-cart wx:if="{{isShow && loginType == 0 && current == 2}}" ></mp-u-cart>
+    <mp-u-my wx:if="{{isShow && loginType == 0 && current == 3}}"></mp-u-my>
+
+    <!--切换登录按钮组件-->
+    <mp-switch-login  switch-login-show="{{switchLoginShow}}" 
+                      bindlogintap="loginTap"> 
+    </mp-switch-login>
+
+    <!--tabbar导航栏菜单组件-->
+    <mp-tabbar  style="position:fixed;bottom:0;width:100%;left:0;right:0;" 
+                wx:if="{{isShow}}"
+                current="{{current}}"
+                list="{{list}}" 
+                bindchange="tabChange">
+    </mp-tabbar>
+</view>

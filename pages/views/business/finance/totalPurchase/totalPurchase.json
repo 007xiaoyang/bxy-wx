@@ -1,0 +1,5 @@
+{
+  "usingComponents": {
+    "mp-head": "/component/head/head"
+  }
+}

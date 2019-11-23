@@ -9,7 +9,7 @@ Page({
   data: {
     loading: false,
     isPassword: true,
-    loginType: '1',
+    loginType: '',
     loginFormObj: [],
 
   },
@@ -75,6 +75,7 @@ Page({
           //把号码和登录类型数据缓存起来
           wx.setStorageSync('loginPhone', data.loginFormObj.loginAccount);
           wx.setStorageSync('loginType', data.loginType);
+          wx.setStorageSync('token', res.data.data);
           //修改登录信息
           wx.request({
             url: app.globalData.host + 'shopApp/updataUserLoginInfo',
@@ -89,8 +90,8 @@ Page({
             },
             method: 'POST',
             success: function(res) {
-              wx.navigateTo({
-                url: "/pages/nav/nav"
+              wx.reLaunch({
+                url: "/pages/index/index"
               });
             }
           });

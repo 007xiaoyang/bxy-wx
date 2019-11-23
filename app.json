@@ -1,16 +1,22 @@
 {
   "pages": [
-    "pages/nav/nav",
+    "pages/index/index",
     "pages/login/login",
     "pages/views/business/sales/orderDetail/orderDetail",
     "pages/views/business/sales/updataSaleOrder/updataSaleOrder",
     "component/grid/grid",
-    "pages/views/business/finance/purchase/purchase"
+    "pages/views/business/finance/purchase/purchase",
+    "pages/views/business/purchase/purchaseDetail/purchaseDetail",
+    "pages/views/business/finance/purchaseReturn/purchseReturn",
+    "pages/views/business/finance/totalPurchase/totalPurchase",
+    "pages/views/business/finance/sales/sales",
+    "pages/views/business/finance/totalSales/totalSales"
+    
   ],
   "window": {
     "backgroundTextStyle": "dark",
     "navigationBarBackgroundColor": "#e6e6e6",
-    "navigationBarTitleText": "用户商城",
+    "navigationBarTitleText": "销售订单",
     "navigationBarTextStyle": "black"
   },
   "permission": {

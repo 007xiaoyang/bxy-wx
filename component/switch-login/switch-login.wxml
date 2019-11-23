@@ -1,0 +1,19 @@
+<!--切换登录组件-->
+<view class="select-login-containter" 
+      wx:if="{{switchLoginShow}}">
+  <button class="select select-user"
+          data-logintype="{{0}}"
+          bindtap="loginTap">
+    用户端登录
+  </button>
+  <button class="select select-staff"
+          data-logintype="{{2}}"
+          bindtap="loginTap">
+    员工端登录
+  </button>
+  <button class="select select-business"
+          data-logintype="{{1}}"
+          bindtap="loginTap">
+    商家端登录
+  </button>
+</view>

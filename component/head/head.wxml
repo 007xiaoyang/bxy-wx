@@ -33,9 +33,8 @@
       <view class="head-dashed"></view>
 
       <view class="p-content-containter" wx:if="{{show}}">
-
+        <slot name="before"></slot>
         <view wx:if="{{mode == 'oneType'}}">
-          <slot name="before"></slot>
           <view class="c-label-one">
             {{modeLable}}
           </view>
@@ -58,7 +57,7 @@
             catchtap="shrinkTap" 
             wx:if="{{show}}" 
             data-icon="{{false}}" 
-            data-height="{{68}}" 
+            data-height="{{130}}" 
             src="{{shangIcon}}" />
     <image  class="p-containter-fil" 
             catchtap="shrinkTap" 
@@ -69,6 +68,6 @@
   </view>
 
   <view class="content-containter" 
-        style="top:{{largeHeight}}px">
+        style="top:{{largeHeight}}rpx">
     <slot name="after"></slot>
   </view>

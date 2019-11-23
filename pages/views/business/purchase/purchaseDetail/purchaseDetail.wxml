@@ -1,6 +1,6 @@
 <!--pages/views/business/orderDetail/orderDetail.wxml-->
 <view class="container">
-  <view class="order-container" catchtouchmove="catchtouchmove" bindtap="multipleTap" data-state="{{!show}}">  
+  <view class="order-container" catchtouchmove="catchtouchmove" bindtap="multipleTap" data-state="{{!show}}">
     <view class="order">名称：  </view>
     <view class="order">订单号：  234dfdsfr3423423423</view>
     <view wx:if="{{show}}" class="order">运费：  ￥1</view>
@@ -8,17 +8,7 @@
     <view wx:if="{{show}}" class="order">优惠：  ￥33</view>
     <view wx:if="{{show}}" class="order">备注：  33</view>
     <view class="order">合计：  ￥342423</view>
-    <view class="order">结款：  ￥0</view>
-   
-    <view wx:if="{{show}}" style="display: flex; margin:25rpx 0rpx">
-      <button class="btn-share"
-               size="mini" 
-               hover-stop-propagation="{{true}}"
-               bindtap="handleBtnShare"
-               catchtouchmove="catchtouchmove">
-        分享订单
-      </button>
-    </view>
+    <view class="order">结款：  ￥0</view>      
   </view>
   <view class="contents"  style="top: {{topHeight}}rpx" >
     <block wx:for="{{10}}" wx:key="{{index}}">
@@ -26,7 +16,7 @@
       <view class="contents-detail">产品：大米{{index}}</view>
       <view class="contents-detail">售价：12元/瓶</view>
       <view class="contents-detail">数量：1 
-        <text class="contents-right {{index % 2 == 0 ? 'blue': 'yellow'}}">售卖</text>  
+        <text class="contents-right {{index % 2 == 0 ? 'blue': 'yellow'}}">买入</text>  
       </view> 
       
     </view>

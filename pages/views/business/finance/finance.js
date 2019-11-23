@@ -7,6 +7,10 @@ Component({
 
   },
 
+  ready(){
+   
+  },
+
   /**
    * 组件的初始数据
    */
@@ -125,5 +129,8 @@ Component({
    */
   methods: {
 
+  },
+  attached() {
+  
   }
 })

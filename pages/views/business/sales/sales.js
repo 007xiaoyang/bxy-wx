@@ -1,5 +1,6 @@
-// pages/component/business/sales/sales.js
+const app = getApp();
 Component({
+  
   options: {
     multipleSlots: true // 在组件定义时的选项中启用多slot支持
   },
@@ -7,9 +8,12 @@ Component({
    * 组件的属性列表
    */
   properties: {
-
+    titleIndex:{  //默认是待接单事件那里
+      type: Number,
+      value : 0
+    }
   },
-
+ 
   /**
    * 组件的初始数据
    */
@@ -21,7 +25,6 @@ Component({
     buttons: [{ text: '取消' }, { text: '确认' }],
 
     handHeigth: 100,
-    currentTab: 0,
     display: true,    //搜索框状态
     waitReceipt: false, //待接单状态
     notPrinted: true,  //未打印状态
@@ -29,12 +32,13 @@ Component({
     unpaid: true,     //未付款状态
     arrears: true,    //欠款状态
     accepted: true,   //已收款状态
+    totalRecordsNum: '' , //items里显示 订单的总数
     items: ["待接单", "未打印", "待送货", "未付款", "欠款", "已收款"],
     startData: "开始时间",
     endData: "结束时间",
     deliveredObj: {/*  待送货对象  */
       saleTotal: 0,     /*销售总额*/
-      retreatTotal: 0   /*退货总额*/
+      retreatTotal: ''   /*退货总额*/
     },
     unpaidObj: {/*  未付款对象  */
       saleUnpaidTotal: 0,      /*未付款总额*/
@@ -55,94 +59,122 @@ Component({
     mold:0
   },
 
+  ready(){
+    let titleIndex = this.data.titleIndex;
+    this.titleMethod(titleIndex , this);
+  },
   
 
   /**
    * 组件的方法列表
    */
   methods: {
+
+    getData() {
+      console.log("刷新数据")
+    },
+
+
     //点击标题导航栏事件
     handleHeadItemClick(e) {
       let that = this;
       if (this.data.currentTab === e.target.dataset.index) {
         return false;
       } else {
-
-        if (e.target.dataset.index == 0) {
-          that.setData({
-            handHeigth: 100,
-            currentTab: e.target.dataset.index,
-            display: true,
-            waitReceipt: false,
-            notPrinted: true,
-            delivered: true,
-            unpaid: true,
-            arrears: true,
-            accepted: true
-          })
-        } else if (e.target.dataset.index == 1) {
-          that.setData({
-            handHeigth: 175,
-            currentTab: e.target.dataset.index,
-            display: false,
-            waitReceipt: true,
-            notPrinted: false,
-            delivered: true,
-            unpaid: true,
-            arrears: true,
-            accepted: true
-          })
-        } else if (e.target.dataset.index == 2) {
-          that.setData({
-            handHeigth: 240,
-            currentTab: e.target.dataset.index,
-            display: false,
-            waitReceipt: true,
-            notPrinted: true,
-            delivered: false,
-            unpaid: true,
-            arrears: true,
-            accepted: true
-          })
-        } else if (e.target.dataset.index == 3) {
-          that.setData({
-            handHeigth: 240,
-            currentTab: e.target.dataset.index,
-            display: false,
-            waitReceipt: true,
-            notPrinted: true,
-            delivered: true,
-            unpaid: false,
-            arrears: true,
-            accepted: true
-          })
-        } else if (e.target.dataset.index == 4) {
-          that.setData({
-            handHeigth: 240,
-            currentTab: e.target.dataset.index,
-            display: false,
-            waitReceipt: true,
-            notPrinted: true,
-            delivered: true,
-            unpaid: true,
-            arrears: false,
-            accepted: true
-          })
-        } else if (e.target.dataset.index == 5) {
-          that.setData({
-            handHeigth: 290,
-            currentTab: e.target.dataset.index,
-            display: false,
-            waitReceipt: true,
-            notPrinted: true,
-            delivered: true,
-            unpaid: true,
-            arrears: true,
-            accepted: false
-          })
-        }
+        let titleIndex = e.target.dataset.index;
+        this.titleMethod(titleIndex,this)
+        this.triggerEvent('indextap', { titleIndex: titleIndex}, {});
       }
     },
+
+    //方法
+    titleMethod(titleIndex , that){  //待接单
+      if (titleIndex == 0) {
+        that.setData({
+          list: [],
+          handHeigth: 100,
+          display: true,
+          waitReceipt: false,
+          notPrinted: true,
+          delivered: true,
+          unpaid: true,
+          arrears: true,
+          accepted: true,
+          totalRecordsNum:''
+        });
+        that.waitingOrder(1);
+      } else if (titleIndex == 1) {  //未打印
+        that.setData({
+          list: [],
+          handHeigth: 175,
+          display: false,
+          waitReceipt: true,
+          notPrinted: false,
+          delivered: true,
+          unpaid: true,
+          arrears: true,
+          accepted: true,
+          totalRecordsNum: ''
+        });
+        that.notPrintedOrder(1, '', '');
+      } else if (titleIndex == 2) { //待送货   
+        that.setData({
+          list: [],
+          handHeigth: 240,
+          display: false,
+          waitReceipt: true,
+          notPrinted: true,
+          delivered: false,
+          unpaid: true,
+          arrears: true,
+          accepted: true,
+          totalRecordsNum: ''
+        });
+        this.stayDeliveredOrder(1 , '' ,'' ,'');
+      } else if (titleIndex == 3) { //未付款
+        that.setData({
+          list: [],
+          handHeigth: 240,
+          display: false,
+          waitReceipt: true,
+          notPrinted: true,
+          delivered: true,
+          unpaid: false,
+          arrears: true,
+          accepted: true,
+          totalRecordsNum: ''
+        });
+        this.unpaidOrder(1 ,'' , '','','','');
+      } else if (titleIndex == 4) { //欠款
+        that.setData({
+          list: [],
+          handHeigth: 240,
+          display: false,
+          waitReceipt: true,
+          notPrinted: true,
+          delivered: true,
+          unpaid: true,
+          arrears: false,
+          accepted: true,
+          totalRecordsNum: ''
+        })
+      } else if (titleIndex == 5) { //已收款
+        that.setData({
+          list: [],
+          handHeigth: 290,
+          display: false,
+          waitReceipt: true,
+          notPrinted: true,
+          delivered: true,
+          unpaid: true,
+          arrears: true,
+          accepted: false,
+          totalRecordsNum: ''
+        })
+      }
+    },
+
+
     //点击搜索框搜索
     handleInputSearch() {
       console.log("点击搜索")
@@ -221,10 +253,89 @@ Component({
       this.setData({
         layerHeight: event.detail.height 
       })
+    },
+
+
+    //待接单接口方法
+    waitingOrder(pageNo){
+      app.post('order/waitingOrder',{pageNo: pageNo}).then((res) => {
+        let data = res;
+        this.setData({
+          list: data.records,
+          totalRecordsNum: data.totalRecordsNum
+        })
+      }).catch((res) => {
+        wx.showToast({
+          title: res,
+          icon: 'none'
+        })
+      });
+    },
+    
+    /**
+     * 未打印订单接口方法
+     * @pageNo 页数
+     * @name 名称
+     * @number 订单号
+     */
+    notPrintedOrder(pageNo, name, number){
+      app.post('/order/notPrintedOrder', { pageNo: pageNo, name: name ,number: number }).then((res) => {
+        let data = res
+        this.setData({
+          list: data.records,
+          totalRecordsNum: data.totalRecordsNum
+        })
+      }).catch((res) => {
+        wx.showToast({
+          title: res,
+          icon: 'none'
+        })
+      });
+    },
+    /**
+     * 待送货订单接口方法
+     * @pageNo 页数
+     * @name 名称
+     * @number 订单号
+     * @staffName 员工名称
+     */
+    stayDeliveredOrder(pageNo, name, number, staffName){
+      app.post('/order/stayDelivered',{pageNo , name , number , staffName}).then((res) => {
+          let data = res;
+          this.setData({
+            list: data.records,
+            totalRecordsNum: data.totalRecordsNum,
+            ['deliveredObj.saleTotal'] : res.hashMap.sale,
+            ['deliveredObj.retreatTotal']: res.hashMap.return
+          })
+      });
+    },
+    /**
+     * 待送货订单接口方法
+     * @pageNo 页数
+     * @name 名称
+     * @number 订单号
+     * @staffName 员工名称
+     * @startTime 开始时间
+     * @endTime 结束时间
+     */
+    unpaidOrder(pageNo, name, number, staffName, startTime, endTime){
+      app.post('order/unpaidOrder', { pageNo: pageNo, name: name, number: number, staffName: staffName, startTime:        startTime, endTime: endTime }).then((res) => { 
+        let data = res;
+        console.log(res);
+        this.setData({
+          list: data.records,
+          totalRecordsNum: data.totalRecordsNum,
+          ['unpaidObj.saleUnpaidTotal']: res.hashMap.price,
+          ['unpaidObj.retreatUnpaidTotal']: res.hashMap.retreat_price
+        })
+      });
     }
 
-  },
-  attached() {
-   
-  }
+    
+
+  }, //.......methods
+
+
+  
 })

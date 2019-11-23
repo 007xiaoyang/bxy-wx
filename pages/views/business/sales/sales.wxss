@@ -152,10 +152,12 @@
 
 
 .orderMoney{
+  position: relative;
+  bottom: 15rpx;
+  right: 18rpx;
   font-size: 35rpx;
   font-weight: bold ;
   float: right;
-  margin-right: 20rpx;
 }  
 .discdount{
   color: white;

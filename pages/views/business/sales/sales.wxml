@@ -1,12 +1,13 @@
-<view class="">
+<view>
 <view class="box-container">
   <view class="head-upper-container">
     <block  wx:for="{{items}}"
             wx:key="{{index}}">
-      <view class="item {{currentTab == index ? 'item-active' : ''}}"
+      <view class="item {{titleIndex == index ? 'item-active' : ''}}"
             bindtap="handleHeadItemClick"
             data-index="{{index}}">
-        {{item}}      
+        {{item}}
+        <text wx:if="{{titleIndex == index && totalRecordsNum != 0}}"> {{totalRecordsNum}}</text>
       </view>      
     </block>
   </view> <!--  ../head-upper-container  -->
@@ -109,17 +110,17 @@
 
 <scroll-view  class="scroll-container" scroll-top scroll-y 
               style=" top:{{handHeigth}}rpx; ">
-  <view   wx:for="{{40}}" wx:key="{{index}}">
+  <view   wx:for="{{list}}" wx:key="{{index}}">
     <view class="order-contents">
-      <view bindtap="handleOrderDetailClick">
+      <view bindtap="handleOrderDetailClick" data-orderId="{{item.id}}">
         <view class="{{mold == 1 ? 'typeface':''}}">
-          下单客户: 杨打发手动阀打发的手法对付啊打发阿达啊的大斗法
+          下单客户: {{item.user_name}}
         </view>
         <view class="{{mold == 1 ? 'typeface':''}}">
-          订单编号: 4524524524524525245
+          订单编号: {{item.order_number}}
         </view>
         <view class="{{mold == 1 ? 'typeface':''}}">
-          标识码：DFD321
+          标识码：{{item.no}}
         </view>
         <view class="{{mold == 1 ? 'typeface':''}}"
                wx:if="{{waitReceipt}}">
@@ -135,7 +136,7 @@
         </view>
         <view class="{{mold == 1 ? 'typeface':''}}" 
               wx:if="{{!arrears}}">
-          欠款金额：353元
+          欠款金额：0元
         </view>
         <view class="{{mold == 1 ? 'typeface':''}}" 
               wx:if="{{!arrears}}">
@@ -162,11 +163,11 @@
           到货时间:  201-09-11 12:34:53
         </view>
         <view class="{{mold == 1 ? 'typeface':''}}">
-          下单时间: 201-09-11 12:34:532  
-          <text class="orderMoney {{mold == 1 ? 'typeface':''}}">￥280</text> 
+          下单时间: {{item.create_time}}  
+          <text class="orderMoney {{mold == 1 ? 'typeface':''}}">￥{{item.price}}</text> 
         </view>
         <view class="{{mold == 1 ? 'typeface':''}}">
-          联系电话: 13215755266          
+          联系电话: {{item.phone}}   
           <text class="discdount">优惠0元</text>
         </view>
       </view>

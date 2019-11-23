@@ -5,10 +5,11 @@ Page({
    * 页面的初始数据
    */
   data: {
-    largeHeight: 155,   /**  顶部到内容的高度*/
+    show: true,
+    largeHeight: 630,   /**  顶部到内容的高度*/
     startDate: '开始时间',
     endDate: '结束时间',
-    labelText:[{
+    labelText: [{
       oneName: '已到货采购金额',
       oneNum: '0',
       twoName: '采购欠款金额',
@@ -23,34 +24,34 @@ Page({
   },
 
   //输入框点击完成事件回调
-  headleConfirmTap(e){
+  headleConfirmTap(e) {
     console.log(e)
   },
 
   //收缩事件回调
-  headleShrinkTap(e){
+  headleShrinkTap(e) {
     var height = e.detail.height;
-    if(height == 0){
-      height = 161
+    if (height == 0) {
+      height = 630
     }
     this.setData({
       largeHeight: height
     })
   },
 
-//扫一扫事件回调
-  headleScanTap(e){
+  //扫一扫事件回调
+  headleScanTap(e) {
     wx.scanCode({
       onlyFromCamera: true,
       scanType: [],
-      success: function(res) {},
-      fail: function(res) {},
-      complete: function(res) {},
+      success: function (res) { },
+      fail: function (res) { },
+      complete: function (res) { },
     })
   },
 
   //时间回调事件
-  headleChangeDatetTap(e){
+  headleChangeDatetTap(e) {
     var detail = e.detail;
     var date = detail.date;
     var dateValue = detail.value;

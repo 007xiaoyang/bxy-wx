@@ -68,7 +68,7 @@
 }
 
 .p-containter-fil{
-  height: 38rpx;
+  height: 35rpx;
   width: 75rpx;
   text-align: center;
   position: relative;

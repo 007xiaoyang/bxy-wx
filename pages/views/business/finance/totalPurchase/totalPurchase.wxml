@@ -1,0 +1,128 @@
+<!--总采购金额-->
+<mp-head  large-height="{{largeHeight}}" 
+          start-date="{{startDate}}"
+          end-date="{{endDate}}"
+          placeholder="供应商名称搜索"
+          bindshrinktap="headleShrinkTap" 
+          bindscantap="headleScanTap"
+          bindchangedatetap="headleChangeDatetTap"
+          bindconfirmtap="headleConfirmTap">
+
+<view slot="before" wx:if="{{show}}">
+ <!--今日结算-->
+  <view class="before-container">
+    <button class="before-btn" size="mini">今日结算</button>
+    <text class="before-label">上次结算时间：2019-11-12 12:12:32</text>
+  </view>
+  <!--今日金额-->
+  <view class="middle-today">
+    <view class="title">今日金额（不随时间搜索变化）</view>
+    <view class="today-content">
+      <view class="content-label blue">
+        <view>采购金额</view>
+        <view>¥0</view>
+      </view>
+      <view class="content-label blue">
+        <view>采购欠款金额</view>
+        <view>¥122</view>
+      </view>
+      <view class="content-label blue">
+        <view>采购未付款金额</view>
+        <view>¥1212</view>
+      </view>
+      <view class="content-label blue">
+        <view>采购实付金额</view>
+        <view>¥10</view>
+      </view>
+      <view class="content-label_2">
+        <view>退货金额</view>
+        <view>¥0</view>
+      </view>
+      <view class="content-label_2 red">
+        <view>风险金额</view>
+        <view>¥122</view>
+      </view>
+    </view>
+  </view>
+  <!--全部总额-->
+   <view class="middle-today">
+    <view class="title">全部总额（随时间搜索变化）</view>
+    <view class="today-content">
+      <view class="content-label ">
+        <view>已到货采购总额</view>
+        <view>¥0</view>
+      </view>
+      <view class="content-label ">
+        <view>采购应付总额</view>
+        <view>¥122</view>
+      </view>
+      <view class="content-label ">
+        <view>采购实付总额</view>
+        <view>¥1212</view>
+      </view>
+      <view class="content-label ">
+        <view>采购未付总额</view>
+        <view>¥10</view>
+      </view>
+      <view class="content-label">
+        <view>采购欠款总额</view>
+        <view>¥550</view>
+      </view>
+      <view class="content-label gra">
+        <view>采购退货总额</view>
+        <view>¥122</view>
+      </view>
+      <view class="content-label gra">
+        <view>退货未收总额</view>
+        <view>¥10</view>
+      </view>
+      <view class="content-label gra">
+        <view>退货应收总额</view>
+        <view>¥10</view>
+      </view>
+      <view class="content-label_2 gra">
+        <view>退货实收总额</view>
+        <view>¥10</view>
+      </view>
+      <view class="content-label_2 red">
+        <view>上次结算未结清金额</view>
+        <view>¥11110</view>
+      </view>
+    </view>
+  </view>
+</view>
+
+
+
+<view slot="after">
+  <block wx:for="{{6}}" wx:key="{{index}}">
+    <view class="list-containter">
+      <view class="dashed list-label">  
+        <text>供应商：大大啊打发{{index}}</text>
+      </view>
+      <view class="dashed list-label">
+        <text>订单编号：234234341234134134134</text>
+      </view>
+      <view class="dashed list-label">
+        <text> 标识码：DSF121</text>
+      </view>
+      <view class="dashed list-label">
+        <text class="label">订单金额：122 </text> 
+        <text class="label">付款总额：￥333</text>  
+        <text class="label">实际付款：￥200</text>
+      </view>
+      <view class="dashed list-label">
+        <text class="label">结款人：商家</text>  
+        <text class="label">支付：微信</text>
+      </view>
+      <view class="list-label">
+        <text>到货时间：2019-11-10 19:22:11</text>
+      </view>
+      <view class="list-label">
+        <text>结款时间：2019-11-10 19:22:11</text>
+        <text class="label">已退款</text>
+      </view>
+    </view>
+  </block>
+</view>
+</mp-head>

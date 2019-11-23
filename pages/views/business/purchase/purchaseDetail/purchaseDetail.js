@@ -6,17 +6,12 @@ Page({
    */
   data: {
     show: true,
-    topHeight: 580 ,
+    topHeight: 465,
     touchStartTime: 0,   // 触摸开始时间
     touchEndTime: 0,     // 触摸结束时间
     lastTapTime: 0,  // 最后一次单击事件点击发生时间
   },
-
-  handleBtnShare(){
-    console.log("分享订单")
-  },
-
-  multipleTap(e){
+  multipleTap(e) {
     let diffTouch = this.data.touchEndTime - this.data.touchStartTime;
     let curTime = e.timeStamp;
     let lastTime = this.data.lastTapDiffTime;
@@ -25,7 +20,7 @@ Page({
     let diff = curTime - lastTime;
     if (diff < 250) {
       let state = e.currentTarget.dataset.state;
-      let height = state == true ? 580 : 245 ;
+      let height = state == true ? 465 : 245;
       clearTimeout(this.data.lastTapTimeoutFunc); // 成功触发双击事件时，取消单击事件的执行
       this.setData({
         show: state,
@@ -33,5 +28,5 @@ Page({
       })
     }
   },
-  catchtouchmove(){return}
+  catchtouchmove() { return }
 })

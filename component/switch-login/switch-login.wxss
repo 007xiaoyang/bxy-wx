@@ -1,0 +1,23 @@
+/* component/switch/switch.wxss */
+.select-login-containter{
+  position: fixed;
+  top: 250rpx;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+.select{
+  margin: 80rpx 50rpx;
+}
+.select-user{
+  background-color: rgb(231, 152, 99);
+  color: white;
+}
+.select-staff{
+  background-color: rgb(99, 194, 231);
+  color: white;
+}
+.select-business{
+  background-color: rgb(49, 83, 194);
+  color: white;
+}
