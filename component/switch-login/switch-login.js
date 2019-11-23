@@ -26,7 +26,7 @@ Component({
       var dataset = event.currentTarget;
       var logintype = dataset.dataset.logintype;
       this.triggerEvent('logintap', { logintype: logintype }, {});
-      wx.reLaunch({url:'/pages/login/login'})
+      wx.reLaunch({ url: '/pages/login/login?logintype=' + logintype})
     },
   }
 })
