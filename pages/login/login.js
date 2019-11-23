@@ -51,61 +51,45 @@ Page({
   },
   //点击登录触发事件
   handleFormSubmit(event) {
-    if(this.data.loginType != 0){
-      var data = this.data;
+    let url = '';
+    let data = this.data;
+    let phone = data.loginFormObj.loginAccount;
+    let password = data.loginFormObj.loginPassword
+    let role = data.loginType;
+    if (this.data.loginType == 0) {
+      url = app.globalData.userHost + '/user/login.do'
+    } else {
+      url = app.globalData.businessHost + '/business/login'
+    }
+    //登录
+    app.post(url, { phone: phone, password: password, role: role}).then((res) =>{
+      wx.showToast({
+        title: '登录成功，正在为您跳转。。',
+        icon: 'none',
+        duration: 1300,
+        mask: true
+      });
+      //把号码和登录类型数据缓存起来
+      wx.setStorageSync('loginPhone', phone);
+      wx.setStorageSync('loginType', role);
+      wx.setStorageSync('token', res);
+      //修改登录信息
       wx.request({
-        url: app.globalData.host + 'business/login',
+        url: app.globalData.businessHost + '/shopApp/updataUserLoginInfo',
         data: {
-          role: data.loginType,
-          phone: data.loginFormObj.loginAccount,
-          password: data.loginFormObj.loginPassword
+          token: res,
+          role: role,
+          loginPhone: phone,
+          loginType: role
         },
         header: {
           'content-type': 'application/x-www-form-urlencoded'
         },
         method: 'POST',
-        dataType: 'json',
         success: function (res) {
-          var info = res.data.info;
-          if (res.data.code == 1) {
-            wx.showToast({
-              title: '登录成功，正在为您跳转。。',
-              icon: 'none',
-              duration: 1000,
-              mask: true
-            });
-            //把号码和登录类型数据缓存起来
-            wx.setStorageSync('loginPhone', data.loginFormObj.loginAccount);
-            wx.setStorageSync('loginType', data.loginType);
-            wx.setStorageSync('token', res.data.data);
-            //修改登录信息
-            wx.request({
-              url: app.globalData.host + 'shopApp/updataUserLoginInfo',
-              data: {
-                token: res.data.data,
-                role: data.loginType,
-                loginPhone: data.loginFormObj.loginAccount,
-                loginType: data.loginType
-              },
-              header: {
-                'content-type': 'application/x-www-form-urlencoded'
-              },
-              method: 'POST',
-              success: function (res) {
-                wx.reLaunch({
-                  url: "/pages/index/index"
-                });
-              }
-            });
-
-          } else {
-            wx.showToast({
-              title: info,
-              icon: 'none',
-              duration: 1000,
-              mask: true
-            })
-          }
+          wx.reLaunch({
+            url: "/pages/index/index"
+          });
         },
         fail: function (res) {
           wx.showToast({
@@ -113,15 +97,11 @@ Page({
             icon: 'none',
             duration: 1000,
             mask: true
-          })
+          });
         }
-      });
-    }else{
-      wx.reLaunch({
-        url: "/pages/index/index"
-      });
-    }
-    
 
-  },
+      }); //......修改登录信息....
+    }); //.....post
+
+  }, //......handleFormSubmit
 })

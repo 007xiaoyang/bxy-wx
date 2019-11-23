@@ -258,7 +258,7 @@ Component({
 
     //待接单接口方法
     waitingOrder(pageNo){
-      app.post('order/waitingOrder',{pageNo: pageNo}).then((res) => {
+      app.post(app.globalData.businessHost +'/order/waitingOrder',{pageNo: pageNo}).then((res) => {
         let data = res;
         this.setData({
           list: data.records,
@@ -279,7 +279,7 @@ Component({
      * @number 订单号
      */
     notPrintedOrder(pageNo, name, number){
-      app.post('/order/notPrintedOrder', { pageNo: pageNo, name: name ,number: number }).then((res) => {
+      app.post(app.globalData.businessHost+'/order/notPrintedOrder', { pageNo: pageNo, name: name ,number: number }).then((res) => {
         let data = res
         this.setData({
           list: data.records,
@@ -300,7 +300,7 @@ Component({
      * @staffName 员工名称
      */
     stayDeliveredOrder(pageNo, name, number, staffName){
-      app.post('/order/stayDelivered',{pageNo , name , number , staffName}).then((res) => {
+      app.post(app.globalData.businessHost +'/order/stayDelivered',{pageNo , name , number , staffName}).then((res) => {
           let data = res;
           this.setData({
             list: data.records,
@@ -320,7 +320,7 @@ Component({
      * @endTime 结束时间
      */
     unpaidOrder(pageNo, name, number, staffName, startTime, endTime){
-      app.post('order/unpaidOrder', { pageNo: pageNo, name: name, number: number, staffName: staffName, startTime:        startTime, endTime: endTime }).then((res) => { 
+      app.post(app.globalData.businessHost +'order/unpaidOrder', { pageNo: pageNo, name: name, number: number, staffName: staffName, startTime:        startTime, endTime: endTime }).then((res) => { 
         let data = res;
         this.setData({
           list: data.records,
